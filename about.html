@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About | Nishanth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #f0e6d2;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    header h2 {
+      font-family: 'Cinzel', serif;
+      color: #fee714;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #e7dfcf;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: gold;
+      border-bottom: 2px solid gold;
+      padding-bottom: 3px;
+    }
+
+    .about-section {
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .about-section {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 1.2s ease;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+
+
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #f1f1f1;
+    }
+
+   @keyframes glowHover {
+  0% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.4); }
+  100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+}
+.about-section:hover {
+  animation: glowHover 1.6s infinite ease-in-out;
+}
+
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #f0e6d2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+    .about-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.about-list li {
+  position: relative;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  color: #f1f1f1;
+  padding-left: 30px;
+  line-height: 1.7;
+}
+
+.about-list li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: #00e6ff; /* Light blue star */
+  font-size: 1.1rem;
+}
+.about-section:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4), 0 0 60px rgba(0, 255, 255, 0.2);
+  transform: scale(1.01);
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Nishanth</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="about-section">
+  <h1>About Me</h1>
+
+  <ul class="about-list">
+    <li> I'm Nishanth, a 3rd-year B.Tech student specializing in Artificial Intelligence and Data Science at Shree Venkateshwara Hi-Tech Engineering College.</li>
+    <li> I’m passionate about understanding data and solving real-world problems using technology. My key interest lies in <strong>Data Analysis using Python</strong>.</li>
+    <li> I’m skilled in HTML, CSS, JavaScript, and Python, and I’m exploring tools like Pandas, NumPy, and Matplotlib to analyze and visualize data.</li>
+    <li> My goal is to become a Data Analyst who can turn raw data into meaningful insights. I enjoy working on data projects, learning new libraries, and sharing knowledge through clean code.</li>
+  </ul>
+  </section>
+  
+
+  <footer>
+    &copy; 2025 Nishanth | All Rights Reserved
+  </footer>
+</body>
+</html>

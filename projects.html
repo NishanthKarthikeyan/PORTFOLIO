@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nishanth | Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #f0e6d2;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+    header h2 {
+      font-family: 'Cinzel', serif;
+      color: #f0e68c;
+    }
+    nav a {
+      color: #f0e6d2;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: gold;
+      border-bottom: 2px solid gold;
+      padding-bottom: 3px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .project {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,215,0,0.15);
+      transition: transform 0.3s;
+    }
+    .project:hover {
+      transform: scale(1.02);
+    }
+    .project img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+    .project h2 {
+      margin-bottom: 10px;
+      color: gold;
+    }
+    .project p {
+      color: #ddd;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #f0e6d2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+    body {
+  user-select: none;
+  -webkit-user-drag: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Nishanth</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 style="font-family:'Cinzel', serif; text-align:center; color: gold; font-size: 2.3rem; margin-bottom: 40px;">My Projects</h1>
+
+    <div class="project">
+      <h2>Time Tracking Web App</h2>
+      <img src="images/codeathon.jpg" alt="Code-a-thon" />
+      <p>I created a time tracking web application using HTML, CSS, and JavaScript. This project won 1st Prize in Code-a-thon 2024 conducted by ABC College. It allows users to manage productivity with timer, task log, and session tracking.</p>
+    </div>
+
+    <div class="project">
+      <h2>Responsive Website Design</h2>
+      <img src="images/webdesign.jpg" alt="Web Design" />
+      <p>This project was selected as a finalist in a national-level competition hosted by XYZ Institute. It features a mobile-first responsive layout with animations, gallery, and contact integration using HTML, CSS, and Bootstrap.</p>
+    </div>
+  </div>
+  
+   <script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
+      e.key === 'F12' || 
+      (e.ctrlKey && e.shiftKey && e.key === 'I')
+    ) {
+      e.preventDefault();
+    }
+  });
+  document.addEventListener('copy', function(e) {
+    e.preventDefault();
+  });
+</script>
+
+</body>
+</html>

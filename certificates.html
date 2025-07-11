@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nishanth | Certificates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #f0e6d2;
+      margin: 0;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    header h2 {
+      font-family: 'Cinzel', serif;
+      color: #f0e68c;
+    }
+
+    nav a {
+      color: #f0e6d2;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      color: gold;
+      border-bottom: 2px solid gold;
+      padding-bottom: 3px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      color: gold;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 280px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px gold;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #f0e6d2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 50px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: radial-gradient(circle at center, rgba(255, 215, 0, 0.2), rgba(0, 0, 0, 0.95));
+      backdrop-filter: blur(6px);
+      animation: glowIn 0.4s ease-out;
+    }
+
+    @keyframes glowIn {
+      from { background-color: rgba(0, 0, 0, 0); }
+      to { background-color: rgba(0, 0, 0, 0.9); }
+    }
+
+    .modal-content {
+      display: block;
+      margin: auto;
+      max-width: 90%;
+      max-height: 80vh;
+      border: 5px solid gold;
+      border-radius: 15px;
+      box-shadow: 0 0 30px gold;
+    }
+
+    .close, .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: gold;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+    }
+
+    .close {
+      top: 30px;
+      right: 50px;
+      font-size: 40px;
+      background: none;
+    }
+
+    .close:hover {
+      color: red;
+    }
+
+    .prev {
+      left: 30px;
+    }
+
+    .next {
+      right: 30px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(255, 215, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>Nishanth</h2>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="certificates.html" class="active">Certificates</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>My Certificates</h1>
+    <div class="gallery" id="gallery">
+      <img src="images/image1.jpg" alt="Certificate 1">
+      <img src="images/image2.jpg" alt="Certificate 2">
+      <img src="images/image3.jpg" alt="Certificate 3">
+      <img src="images/image4.jpg" alt="Certificate 4">
+      <img src="images/image5.jpg" alt="Certificate 5">
+      <img src="images/image6.jpg" alt="Certificate 6">
+      <img src="images/image7.jpg" alt="Certificate 7">
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+    <img class="modal-content" id="modalImage">
+    <span class="next" onclick="changeImage(1)">&#10095;</span>
+  </div>
+
+  <footer>
+    &copy; 2025 Nishanth. All rights reserved.
+  </footer>
+
+  <script>
+    // Source protection
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (
+        (e.ctrlKey && ['u', 's'].includes(e.key.toLowerCase())) ||
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i')
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener('copy', function (e) {
+      e.preventDefault();
+    });
+
+    // Image modal slider logic
+    const images = Array.from(document.querySelectorAll('.gallery img'));
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("modalImage");
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        openModal(images[currentIndex].src);
+      });
+    });
+
+    function openModal(src) {
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      modalImg.src = images[currentIndex].src;
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+</html>

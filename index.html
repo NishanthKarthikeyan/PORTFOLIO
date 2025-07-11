@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nishanth | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: #f0e6d2;
+      min-height: 100vh;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      backdrop-filter: blur(8px);
+    }
+    header h2 {
+      font-family: 'Cinzel', serif;
+      color: #fee714;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: #e7dfcf;
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover,
+    nav a.active {
+      color: gold;
+      border-bottom: 2px solid gold;
+      padding-bottom: 3px;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid gold;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: gold;
+      margin-bottom: 20px;
+    }
+
+    .resume-btn {
+      padding: 12px 28px;
+      background: #8023f1;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 10px rgba(237, 209, 49, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-btn:hover {
+      background: #3217df;
+      box-shadow: 0 0 20px rgba(57, 23, 228, 0.8), 0 0 30px rgba(255, 255, 100, 0.6);
+      animation: shine 1.2s linear infinite;
+      color: #000;
+    }
+
+    @keyframes shine {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 255, 100, 0.6);
+      }
+      50% {
+        box-shadow: 0 0 25px rgba(255, 255, 120, 1);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(255, 255, 100, 0.6);
+      }
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: #f0e6d2;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+.course {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00e6ff;
+  text-align: center;
+  padding: 10px 20px;
+  letter-spacing: 1px;
+  z-index: 2;
+  position: relative;
+}
+
+.glow-container {
+  margin-top: 20px;
+  background: rgba(0, 255, 255, 0.05);
+  padding: 15px 25px;
+  border-radius: 30px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.15);
+  animation: glowPulse 3s ease-in-out infinite;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3), 0 0 40px rgba(0, 255, 255, 0.1);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Nishanth</h2>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="certificates.html">Certificates</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+<section class="hero">
+  <img src="images/pic.jpg" alt="Nishanth" draggable="false" oncontextmenu="return false;" onmousedown="return false;" ondragstart="return false;" />
+  <h1>I'M NISHANTH 👑</h1>
+  <a href="resume.pdf" class="resume-btn" download>RESUME</a>
+  <div class="glow-container">
+    <p class="course" id="courseText"></p>
+  </div>
+</section>
+
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
+    document.addEventListener('keydown', function(e) {
+      if (
+        e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I')
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // Disable copy
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+    });
+  // Smooth word-by-word typing
+  const courseElement = document.getElementById("courseText");
+  const words = ["B.Tech", "ARTIFICIAL", "INTELLIGENCE", "AND", "DATA", "SCIENCE"];
+  let index = 0;
+
+  function showNextWord() {
+    if (index < words.length) {
+      courseElement.innerHTML += words[index] + " ";
+      index++;
+      setTimeout(showNextWord, 400);
+    }
+  }
+
+  window.onload = showNextWord;
+  </script>
+</body>
+</html>
