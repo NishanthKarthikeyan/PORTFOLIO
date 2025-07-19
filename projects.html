@@ -11,7 +11,10 @@
       margin: 0;
       background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: #f0e6d2;
+      user-select: none;
+      -webkit-user-drag: none;
     }
+
     header {
       background: rgba(0, 0, 0, 0.7);
       padding: 20px 40px;
@@ -21,10 +24,12 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.6);
       backdrop-filter: blur(8px);
     }
+
     header h2 {
       font-family: 'Cinzel', serif;
       color: #f0e68c;
     }
+
     nav a {
       color: #f0e6d2;
       margin-left: 25px;
@@ -32,40 +37,79 @@
       font-weight: 600;
       transition: color 0.3s;
     }
+
     nav a:hover,
     nav a.active {
       color: gold;
       border-bottom: 2px solid gold;
       padding-bottom: 3px;
     }
+
     .container {
       max-width: 1000px;
       margin: 50px auto;
       padding: 20px;
     }
+
     .project {
+      position: relative;
       background: rgba(255, 255, 255, 0.06);
       padding: 25px;
       margin-bottom: 25px;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(255,215,0,0.15);
       transition: transform 0.3s;
+      overflow: hidden;
     }
+
     .project:hover {
       transform: scale(1.02);
     }
+
+    /* Glitter Effect */
+    .project::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, gold, transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      transform: rotate(30deg);
+      pointer-events: none;
+      animation: glitter 2s linear infinite;
+    }
+
+    .project:hover::before {
+      opacity: 0.3;
+    }
+
+    @keyframes glitter {
+      0% {
+        transform: rotate(30deg) translate(-100%, -100%);
+      }
+      100% {
+        transform: rotate(30deg) translate(100%, 100%);
+      }
+    }
+
     .project img {
       max-width: 100%;
       border-radius: 10px;
       margin-top: 15px;
     }
+
     .project h2 {
       margin-bottom: 10px;
       color: gold;
     }
+
     .project p {
       color: #ddd;
     }
+
     footer {
       background: rgba(0, 0, 0, 0.8);
       color: #f0e6d2;
@@ -73,10 +117,6 @@
       padding: 20px;
       margin-top: 60px;
       font-size: 14px;
-    }
-    body {
-  user-select: none;
-  -webkit-user-drag: none;
     }
   </style>
 </head>
@@ -109,26 +149,28 @@
     </div>
   </div>
   
-   <script>
-  // Disable right-click
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
-  document.addEventListener('keydown', function(e) {
-    if (
-      e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
-      e.key === 'F12' || 
-      (e.ctrlKey && e.shiftKey && e.key === 'I')
-    ) {
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
-    }
-  });
-  document.addEventListener('copy', function(e) {
-    e.preventDefault();
-  });
-</script>
+    });
+
+    // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
+    document.addEventListener('keydown', function(e) {
+      if (
+        e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I')
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // Disable copying
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+    });
+  </script>
 
 </body>
 </html>
