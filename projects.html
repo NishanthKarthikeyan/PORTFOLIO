@@ -51,14 +51,23 @@
       padding: 20px;
     }
 
+    h1 {
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      color: gold;
+      font-size: 2.3rem;
+      margin-bottom: 40px;
+    }
+
     .project {
       position: relative;
       background: rgba(255, 255, 255, 0.06);
       padding: 25px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,215,0,0.15);
+      transition: transform 0.3s;
       overflow: hidden;
-      transition: transform 0.3s ease;
     }
 
     .project:hover {
@@ -66,40 +75,8 @@
     }
 
     .project-content {
-      transition: filter 0.4s ease;
-    }
-
-    .project:hover .project-content {
-      filter: blur(5px);
-    }
-
-    .project::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(120deg, transparent, gold, transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-      transform: rotate(30deg);
-      pointer-events: none;
-      animation: glitter 2s linear infinite;
+      position: relative;
       z-index: 1;
-    }
-
-    .project:hover::before {
-      opacity: 0.3;
-    }
-
-    @keyframes glitter {
-      0% {
-        transform: rotate(30deg) translate(-100%, -100%);
-      }
-      100% {
-        transform: rotate(30deg) translate(100%, 100%);
-      }
     }
 
     .project img {
@@ -117,26 +94,41 @@
       color: #ddd;
     }
 
+    .project::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+
+    .project:hover::after {
+      opacity: 1;
+    }
+
     .view-btn {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      padding: 10px 25px;
       background: gold;
-      color: black;
-      padding: 14px 28px;
+      color: #000;
+      font-weight: bold;
       border: none;
       border-radius: 8px;
-      font-weight: bold;
       font-size: 16px;
       cursor: pointer;
-      opacity: 0;
-      z-index: 2;
-      transition: opacity 0.3s ease;
+      z-index: 3;
+      display: none;
     }
 
     .project:hover .view-btn {
-      opacity: 1;
+      display: block;
     }
 
     footer {
@@ -163,34 +155,40 @@
   </header>
 
   <div class="container">
-    <h1 style="font-family:'Cinzel', serif; text-align:center; color: gold; font-size: 2.3rem; margin-bottom: 40px;">My Projects</h1>
+    <h1>My Projects</h1>
 
     <!-- Project 1: ZARA Chatbot -->
     <div class="project">
       <div class="project-content">
         <h2>ZARA Chatbot</h2>
-        <p>ZARA is a custom-built AI chatbot developed using HTML, CSS, JavaScript, Python (Flask), and integrated with Google's Gemini API. It offers real-time responses, sleek UI, and was designed as a smart assistant demo for portfolio websites and productivity tools.</p>
+        <img src="images/zara.jpg" alt="ZARA Chatbot" />
+        <p>ZARA is a custom-built AI chatbot developed using HTML, CSS, JavaScript, Python (Flask), and integrated with Gemini API. It offers real-time responses with a modern, responsive UI.</p>
       </div>
       <button class="view-btn" onclick="window.open('https://zara-chatbot-r3ap.onrender.com', '_blank')">View</button>
     </div>
 
-    <!-- Project 2: Responsive Website -->
+    <!-- Project 2: Weather Forecasting App -->
     <div class="project">
       <div class="project-content">
-        <h2>Responsive Website Design</h2>
-        <p>This project was selected as a finalist in a national-level competition hosted by XYZ Institute. It features a mobile-first responsive layout with animations, gallery, and contact integration using HTML, CSS, and Bootstrap.</p>
+        <h2>Weather Forecasting Web App</h2>
+        <img src="images/weather.jpg" alt="Weather App" />
+        <p>This app fetches weather data using a weather API and Flask backend. It shows real-time weather updates, including temperature, humidity, wind, and weather changes every 3 hours. Built with HTML, CSS, JavaScript, and Flask.</p>
       </div>
-      <button class="view-btn" onclick="window.open('https://example.com/project2', '_blank')">View</button>
+      <!-- Update the link below after hosting -->
+      <button class="view-btn" onclick="window.open('#', '_blank')">View</button>
     </div>
+
   </div>
-  
+
+  <footer>
+    © 2025 Nishanth. All rights reserved.
+  </footer>
+
   <script>
-    // Disable right-click
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
     });
 
-    // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
     document.addEventListener('keydown', function(e) {
       if (
         e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
@@ -201,7 +199,6 @@
       }
     });
 
-    // Disable copying
     document.addEventListener('copy', function(e) {
       e.preventDefault();
     });
