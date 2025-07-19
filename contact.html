@@ -11,6 +11,8 @@
       margin: 0;
       background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
       color: #f0e6d2;
+      user-select: none;
+      -webkit-user-drag: none;
     }
 
     header {
@@ -120,10 +122,6 @@
       margin-top: 60px;
       font-size: 14px;
     }
-    body {
-  user-select: none;
-  -webkit-user-drag: none;
-    }
   </style>
 </head>
 <body>
@@ -141,67 +139,69 @@
 
   <div class="container">
     <h1>Contact Me</h1>
-    <form action="https://formsubmit.co/knhnishanth@gmail.com" method="POST">
+    <form action="https://formspree.io/f/xqalekov" method="POST">
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="email" name="email" placeholder="Your Email" required />
       <input type="text" name="phone" placeholder="Your Phone Number" required />
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      
+      <!-- Optional Formspree Settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+
       <button type="submit">Send Message</button>
     </form>
 
     <div class="social-links">
-    <!-- Inside .social-links -->
-<div class="social-links">
-  <h1 style="color: gold; margin-top: 40px;">Or connect with me:</h1>
-  
-  <a href="https://www.linkedin.com/in/nishanth-k-000147348" target="_blank">
-    <img src="images/linkedin.png" alt="LinkedIn" style="height: 20px; vertical-align: middle; margin-right: 5px;">
-   LINKEDIN
-  </a>
+      <h1 style="color: gold; margin-top: 40px;">Or connect with me:</h1>
 
-  <a href="https://github.com/NishanthKarthikeyan" target="_blank">
-    <img src="images/github.png" alt="GitHub" style="height: 20px; vertical-align: middle; margin-right: 5px;">
-    GITHUB
-  </a>
+      <a href="https://www.linkedin.com/in/nishanth-k-000147348" target="_blank">
+        <img src="images/linkedin.png" alt="LinkedIn" style="height: 20px; vertical-align: middle; margin-right: 5px;">
+        LINKEDIN
+      </a>
 
-  <a href="https://www.instagram.com/__.black._.lover.0_" target="_blank">
-    <img src="images/instagram.png " alt="Instagram" style="height: 20px; vertical-align: middle; margin-right: 5px;">
-    INSTAGRAM
-  </a>
+      <a href="https://github.com/NishanthKarthikeyan" target="_blank">
+        <img src="images/github.png" alt="GitHub" style="height: 20px; vertical-align: middle; margin-right: 5px;">
+        GITHUB
+      </a>
 
-  <a href="https://wa.me/918807723993" target="_blank">
-    <img src="images/whatsapp.png" alt="WhatsApp" style="height: 20px; vertical-align: middle; margin-right: 5px;">
-    WHATSAPP
-  </a>
-  
-</div>
+      <a href="https://www.instagram.com/__.black._.lover.0_" target="_blank">
+        <img src="images/instagram.png" alt="Instagram" style="height: 20px; vertical-align: middle; margin-right: 5px;">
+        INSTAGRAM
+      </a>
 
-      
+      <a href="https://wa.me/918807723993" target="_blank">
+        <img src="images/whatsapp.png" alt="WhatsApp" style="height: 20px; vertical-align: middle; margin-right: 5px;">
+        WHATSAPP
+      </a>
     </div>
   </div>
 
-
+  <footer>
+    © 2025 Nishanth. All rights reserved.
+  </footer>
 
   <script>
-  // Disable right-click
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
-  document.addEventListener('keydown', function(e) {
-    if (
-      e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
-      e.key === 'F12' || 
-      (e.ctrlKey && e.shiftKey && e.key === 'I')
-    ) {
+    // Disable right-click
+    document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
-    }
-  });
-  document.addEventListener('copy', function(e) {
-    e.preventDefault();
-  });
-</script>
+    });
 
+    // Disable Ctrl+U, Ctrl+Shift+I, F12, Ctrl+S
+    document.addEventListener('keydown', function(e) {
+      if (
+        e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'U' || e.key === 'S') || 
+        e.key === 'F12' || 
+        (e.ctrlKey && e.shiftKey && e.key === 'I')
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // Disable copy
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+    });
+  </script>
 </body>
 </html>
