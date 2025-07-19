@@ -57,15 +57,20 @@
       padding: 25px;
       margin-bottom: 25px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,215,0,0.15);
-      transition: transform 0.3s, backdrop-filter 0.4s;
       overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
     .project:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(255,215,0,0.4);
-      backdrop-filter: blur(3px);
+    }
+
+    .project-content {
+      transition: filter 0.4s ease;
+    }
+
+    .project:hover .project-content {
+      filter: blur(5px);
     }
 
     .project::before {
@@ -81,6 +86,7 @@
       transform: rotate(30deg);
       pointer-events: none;
       animation: glitter 2s linear infinite;
+      z-index: 1;
     }
 
     .project:hover::before {
@@ -118,15 +124,15 @@
       transform: translate(-50%, -50%);
       background: gold;
       color: black;
-      padding: 12px 24px;
+      padding: 14px 28px;
       border: none;
       border-radius: 8px;
       font-weight: bold;
       font-size: 16px;
-      opacity: 0;
       cursor: pointer;
-      transition: opacity 0.4s ease;
+      opacity: 0;
       z-index: 2;
+      transition: opacity 0.3s ease;
     }
 
     .project:hover .view-btn {
@@ -160,17 +166,21 @@
     <h1 style="font-family:'Cinzel', serif; text-align:center; color: gold; font-size: 2.3rem; margin-bottom: 40px;">My Projects</h1>
 
     <div class="project">
+      <div class="project-content">
+        <h2>Time Tracking Web App</h2>
+        <img src="images/codeathon.jpg" alt="Code-a-thon" />
+        <p>I created a time tracking web application using HTML, CSS, and JavaScript. This project won 1st Prize in Code-a-thon 2024 conducted by ABC College. It allows users to manage productivity with timer, task log, and session tracking.</p>
+      </div>
       <button class="view-btn" onclick="window.open('https://example.com/project1', '_blank')">View</button>
-      <h2>Time Tracking Web App</h2>
-      <img src="images/codeathon.jpg" alt="Code-a-thon" />
-      <p>I created a time tracking web application using HTML, CSS, and JavaScript. This project won 1st Prize in Code-a-thon 2024 conducted by ABC College. It allows users to manage productivity with timer, task log, and session tracking.</p>
     </div>
 
     <div class="project">
+      <div class="project-content">
+        <h2>Responsive Website Design</h2>
+        <img src="images/webdesign.jpg" alt="Web Design" />
+        <p>This project was selected as a finalist in a national-level competition hosted by XYZ Institute. It features a mobile-first responsive layout with animations, gallery, and contact integration using HTML, CSS, and Bootstrap.</p>
+      </div>
       <button class="view-btn" onclick="window.open('https://example.com/project2', '_blank')">View</button>
-      <h2>Responsive Website Design</h2>
-      <img src="images/webdesign.jpg" alt="Web Design" />
-      <p>This project was selected as a finalist in a national-level competition hosted by XYZ Institute. It features a mobile-first responsive layout with animations, gallery, and contact integration using HTML, CSS, and Bootstrap.</p>
     </div>
   </div>
   
